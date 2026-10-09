@@ -1,0 +1,51 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Tao khung Android neu chua co
+        run: |
+          if [ ! -d android ]; then
+            flutter create --platforms=android --org vn.example --project-name nav_app .
+          fi
+          python3 scripts/patch_android.py .
+
+      - run: flutter pub get
+
+      - name: Build APK release
+        env:
+          VIETMAP_API_KEY: ${{ secrets.VIETMAP_API_KEY }}
+        run: flutter build apk --release --dart-define=VIETMAP_API_KEY=$VIETMAP_API_KEY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nav-app-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Dang len Release (khi push tag v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/app/outputs/flutter-apk/app-release.apk

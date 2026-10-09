@@ -1,0 +1,24 @@
+name: nav_app
+description: Ung dung dan duong cho o to dung Vietmap Maps API - lan duong, canh bao giao thong, toc do gioi han.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  vietmap_flutter_navigation: ^4.2.0
+  geolocator: ^13.0.2
+  http: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/

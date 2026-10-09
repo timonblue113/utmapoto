@@ -1,0 +1,10 @@
+[
+  {"id": "r1", "type": "noTurn", "title": "Cam re phai 06:00-09:00 va 16:00-19:00", "lat": 10.7769, "lng": 106.7009, "radius": 250, "start": "06:00", "end": "09:00"},
+  {"id": "r2", "type": "noTurn", "title": "Cam re phai 16:00-19:00", "lat": 10.7769, "lng": 106.7009, "radius": 250, "start": "16:00", "end": "19:00"},
+  {"id": "r3", "type": "noOvertake", "title": "Cam vuot", "lat": 10.7900, "lng": 106.6900, "radius": 400},
+  {"id": "r4", "type": "residential", "title": "Khu dan cu - giam toc do", "lat": 10.7950, "lng": 106.6800, "radius": 400},
+  {"id": "r5", "type": "noStop", "title": "Doan duong cam dung 07:00-09:00", "lat": 10.7700, "lng": 106.6950, "radius": 300, "start": "07:00", "end": "09:00"},
+  {"id": "r6", "type": "oddEvenParking", "title": "Cam dung do ngay le", "lat": 10.7720, "lng": 106.6980, "radius": 200, "parity": "odd"},
+  {"id": "r7", "type": "emergencyLane", "title": "Lan dung khan cap phia truoc", "lat": 10.8200, "lng": 106.7100, "radius": 500},
+  {"id": "r8", "type": "camera", "title": "Khu vuc co camera", "lat": 10.7800, "lng": 106.6950, "radius": 300}
+]
